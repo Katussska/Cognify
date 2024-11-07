@@ -1,4 +1,6 @@
-# Cognify - Versatile Multi-LLM Chat Application with User Profiles and Group Chats
+# Cognify
+
+## Versatile Multi-LLM Chat Application with User Profiles and Group Chats
 
 Cognify je webová aplikace, která umožňuje uživatelům komunikovat s různými velkými jazykovými modely (LLM) a zároveň spravovat své uživatelské profily. Aplikace podporuje skupinové chaty, správu tokenů pro využití LLM, rozvětvování konverzací a jejich ukládání.
 
