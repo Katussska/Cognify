@@ -2,14 +2,12 @@ import { useChangeLanguage } from 'remix-i18next/react';
 import { useTranslation } from 'react-i18next';
 import i18next from '~/lib/i18next.server';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
-import { json, LinksFunction, LoaderFunctionArgs } from '@remix-run/node';
+import { LinksFunction, LoaderFunctionArgs } from '@remix-run/node';
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes';
 import { themeSessionResolver } from './routes/sessions.server';
 
 import globalStylesheetUrl from '~/tailwind.css?url';
-import { ModeToggle } from '~/components/mode-toggle';
 import { clsx } from 'clsx';
-import { Layout } from '~/components/layout';
 
 export async function loader({ request }: LoaderFunctionArgs) {
   let locale = await i18next.getLocale(request);
@@ -68,13 +66,11 @@ export function App() {
       <Links />
     </head>
     <body className="min-h-dvh">
-    <ModeToggle />
-    {/* Child routes render here */}
-    <Layout>
-      <Outlet />
-    </Layout>
 
- 
+
+    <Outlet />{/* Child routes render here */}
+
+
     {/* Manages scroll position for client-side transitions */}
     {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
     <ScrollRestoration />

@@ -19,5 +19,10 @@
       "passwordCapital": "Heslo musí obsahovat alespoň jedno velké písmeno",
       "passwordNumber": "Heslo musí obsahovat alespoň jedno číslo"
     }
+  },
+  "sidebar": {
+    "chats": "Konverzace",
+    "groupChats": "Skupinové konverzace",
+    "logout": "Odhlásit se"
   }
 }

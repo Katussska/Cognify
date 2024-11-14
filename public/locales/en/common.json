@@ -19,5 +19,10 @@
       "passwordCapital": "Password must contain at least one capital letter",
       "passwordNumber": "Password must contain at least one number"
     }
+  },
+  "sidebar": {
+    "chats": "Chats",
+    "groupChats": "Group chats",
+    "logout": "Logout"
   }
 }

@@ -30,7 +30,7 @@ export default function Index() {
         You can start editing it by opening <code>app/routes/index.tsx</code>.
       </p>
       <p className="pb-2">
-        <Link className="bg-sky-500 rounded p-2" to="/login">
+        <Link className="bg-sky-500 rounded p-2" to="/app/routes/_auth.login">
           Login
         </Link>
         to access your user account

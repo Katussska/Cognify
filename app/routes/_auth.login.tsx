@@ -11,6 +11,8 @@ import { getValidatedFormData, useRemixForm } from 'remix-hook-form';
 import i18next from '~/lib/i18next.server';
 import { createSupabaseServerClient } from '~/lib/supabase.server';
 
+// todo: loader function that will check if user authenticated, if yes, redirect to /app
+
 export const action = async ({ request }: ActionFunctionArgs) => {
   let t = await i18next.getFixedT(request);
 
@@ -21,7 +23,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return json({ errors, defaultValues });
   }
 
-  const supabase = createSupabaseServerClient(request);
+  const { headers, supabase } = createSupabaseServerClient(request);
   const { error } = await supabase.client.auth.signInWithPassword({
     email: formData.email,
     password: formData.password,
@@ -31,10 +33,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return json({ error: error.message });
   }
 
-  return redirect('/dashboard');
+  console.log(headers);
+
+  return redirect('/app', { headers: headers });
 };
 
-export default function Login() {
+export default function _authLogin() {
   const { t } = useTranslation();
 
   const form = useRemixForm<LoginSchema>({

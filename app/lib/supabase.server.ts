@@ -3,7 +3,6 @@ import { createServerClient, parseCookieHeader, serializeCookieHeader } from '@s
 export function createSupabaseServerClient(request: Request) {
   const headers = new Headers();
   const supabase = {
-    headers: new Headers(),
     client: createServerClient(
       process.env.SUPABASE_URL!,
       process.env.SUPABASE_ANON_KEY!,
@@ -22,5 +21,5 @@ export function createSupabaseServerClient(request: Request) {
     ),
   };
 
-  return supabase;
+  return { headers, supabase };
 }
