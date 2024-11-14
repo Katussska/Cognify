@@ -1,0 +1,23 @@
+{
+  "auth": {
+    "login": {
+      "title": "Přihlášení",
+      "email": "Email",
+      "password": "Heslo",
+      "forgotPassword": "Zapomněli jste heslo? ",
+      "submit": "Přihlásit"
+    },
+    "resetPassword": {
+      "title": "Obnova hesla",
+      "email": "Email",
+      "submit": "Požádat o obnovu hesla"
+    },
+    "validation": {
+      "email": "Zadejte platný email",
+      "passwordMin": "Heslo musí mít alespoň 6 znaků",
+      "passwordMax": "Heslo může mít maximálně 20 znaků",
+      "passwordCapital": "Heslo musí obsahovat alespoň jedno velké písmeno",
+      "passwordNumber": "Heslo musí obsahovat alespoň jedno číslo"
+    }
+  }
+}

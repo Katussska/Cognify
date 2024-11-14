@@ -1,0 +1,23 @@
+{
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot your password? ",
+      "submit": "Submit"
+    },
+    "resetPassword": {
+      "title": "Reset password",
+      "email": "Email",
+      "submit": "Request password reset"
+    },
+    "validation": {
+      "email": "Enter a valid email",
+      "passwordMin": "Password must have at least 6 characters",
+      "passwordMax": "Password can have a maximum of 20 characters",
+      "passwordCapital": "Password must contain at least one capital letter",
+      "passwordNumber": "Password must contain at least one number"
+    }
+  }
+}
