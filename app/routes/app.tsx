@@ -1,7 +1,7 @@
 import { Outlet } from '@remix-run/react';
-import { Layout } from '~/layout';
+import { Layout } from '@/layout';
 import { LoaderFunctionArgs, redirect } from '@remix-run/node';
-import { createSupabaseServerClient } from '~/lib/supabase.server';
+import { createSupabaseServerClient } from '@/lib/supabase.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const { supabase } = createSupabaseServerClient(request);
@@ -10,7 +10,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   if (!userResponse.data.user)
     return redirect('/login');
-  
+
   return {
     user: userResponse?.data?.user,
     env: {

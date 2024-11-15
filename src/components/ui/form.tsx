@@ -2,16 +2,15 @@ import * as React from 'react';
 import { ComponentProps } from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
-import { Controller, ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
+import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider, useFormContext } from 'react-hook-form';
 
-import { cn } from '~/lib/utils';
-import { Label } from '~/components/ui/label';
-import { RemixFormProvider, useRemixFormContext } from 'remix-hook-form';
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
 
-const Form = <T extends FieldValues>({ children, ...props }: ComponentProps<typeof RemixFormProvider<T>>) => (
-  <RemixFormProvider {...props}>
-    <form onSubmit={props.handleSubmit} method="POST">{children}</form>
-  </RemixFormProvider>
+const Form = <T extends FieldValues>({ children, onSubmit, ...props }: ComponentProps<typeof FormProvider<T>> & { onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void> }) => (
+  <FormProvider {...props}>
+    <form onSubmit={onSubmit} method="POST">{children}</form>
+  </FormProvider>
 );
 
 type FormFieldContextValue<
@@ -29,8 +28,8 @@ const FormField = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >({
-    ...props
-  }: ControllerProps<TFieldValues, TName>) => {
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
@@ -41,7 +40,7 @@ const FormField = <
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
-  const { getFieldState, formState } = useRemixFormContext();
+  const { getFieldState, formState } = useFormContext();
 
   const fieldState = getFieldState(fieldContext.name, formState);
 

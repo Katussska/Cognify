@@ -1,5 +1,3 @@
-import { ActionFunctionArgs, json, redirect } from '@remix-run/node';
-import { Link } from '@remix-run/react';
 import { Auth } from '@/components/auth';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -7,41 +5,17 @@ import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { loginSchema, LoginSchema } from '@/schemas/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { getValidatedFormData, useRemixForm } from 'remix-hook-form';
-import i18next from '@/lib/i18next.server';
-import { createSupabaseServerClient } from '@/lib/supabase.server';
-
-// todo: loader function that will check if user authenticated, if yes, redirect to /app
-
-export const action = async ({ request }: ActionFunctionArgs) => {
-  let t = await i18next.getFixedT(request);
-
-  const { errors, data: formData, receivedValues: defaultValues } =
-    await getValidatedFormData<LoginSchema>(request, zodResolver(loginSchema(t)));
-
-  if (errors || !formData) {
-    return json({ errors, defaultValues });
-  }
-
-  const { headers, supabase } = createSupabaseServerClient(request);
-  const { error } = await supabase.client.auth.signInWithPassword({
-    email: formData.email,
-    password: formData.password,
-  });
-
-  if (error) {
-    return json({ error: error.message });
-  }
-
-  console.log(headers);
-
-  return redirect('/app', { headers: headers });
-};
+import { useForm } from 'react-hook-form';
+import { supabase } from '@/supabase';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function _authLogin() {
   const { t } = useTranslation();
+  // todo: loading use loading state on button or somethign
+  const [loading, setLoading] = useState(false);
 
-  const form = useRemixForm<LoginSchema>({
+  const form = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema(t)),
     defaultValues: {
       email: '',
@@ -49,11 +23,26 @@ export default function _authLogin() {
     },
   });
 
+  const onSubmit = form.handleSubmit(async ({ email, password }) => {
+    setLoading(true);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) {
+      form.setError('root', {
+        type: 'custom',
+        message: error.message,
+      });
+    }
+  })
+
+
   return (
     <Auth title={t('auth.login.title')}
       footer={<p><Link to="resetPassword">{t('auth.login.forgotPassword')}</Link>
       </p>}>
-      <Form {...form}>
+      <Form {...form} onSubmit={onSubmit}>
         <FormField
           control={form.control}
           name="email"

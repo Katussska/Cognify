@@ -8,9 +8,9 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-} from '~/components/ui/sidebar';
+} from '@/components/ui/sidebar';
 import { LogOut, Plus } from 'lucide-react';
-import { ModeToggle } from '~/components/mode-toggle';
+import { ModeToggle } from '@/components/mode-toggle';
 
 
 export function AppSidebar() {

@@ -1,8 +1,12 @@
-import type { Config } from 'tailwindcss';
+import tailwindAnimate from 'tailwindcss-animate';
 
+/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
-  content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -76,5 +80,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
-} satisfies Config;
+  plugins: [tailwindAnimate],
+};

@@ -1,12 +1,12 @@
 import { useChangeLanguage } from 'remix-i18next/react';
 import { useTranslation } from 'react-i18next';
-import i18next from '~/lib/i18next.server';
+import i18next from '@/lib/i18next.server';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
 import { LinksFunction, LoaderFunctionArgs } from '@remix-run/node';
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes';
 import { themeSessionResolver } from './routes/sessions.server';
 
-import globalStylesheetUrl from '~/tailwind.css?url';
+import globalStylesheetUrl from '@/tailwind.css?url';
 import { clsx } from 'clsx';
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -51,34 +51,34 @@ export function App() {
 
   return (
     <html lang={data.locale} dir={i18n.dir()} className={clsx(theme)}>
-    <head>
-      <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-      />
+      <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
 
-      {/* All `meta` exports on all routes will render here */}
-      <Meta />
-      <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+        {/* All `meta` exports on all routes will render here */}
+        <Meta />
+        <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
 
-      {/* All `link` exports on all routes will render here */}
-      <Links />
-    </head>
-    <body className="min-h-dvh">
-
-
-    <Outlet />{/* Child routes render here */}
+        {/* All `link` exports on all routes will render here */}
+        <Links />
+      </head>
+      <body className="min-h-dvh">
 
 
-    {/* Manages scroll position for client-side transitions */}
-    {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
-    <ScrollRestoration />
+        <Outlet />{/* Child routes render here */}
 
-    {/* Script tags go here */}
-    {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
-    <Scripts />
-    </body>
+
+        {/* Manages scroll position for client-side transitions */}
+        {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
+        <ScrollRestoration />
+
+        {/* Script tags go here */}
+        {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
+        <Scripts />
+      </body>
     </html>
   );
 }
