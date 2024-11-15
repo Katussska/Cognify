@@ -26,11 +26,12 @@ Cílem této aplikace je nabídnout flexibilní prostředí, kde mohou uživatel
 
 ## Technický stack
 
-- **Frontend**: React, Remix, TailwindCSS
+- **Frontend**: React
 - **Backend**: Supabase
 - **Jazyk**: TypeScript
 - **Databáze**: PostgreSQL
 - **Styling**: TailwindCSS
+- **UI**: Shadcn UI
 
 ## Instalace a spuštění projektu
 
@@ -46,7 +47,7 @@ cd cognify
 Použijte následující příkaz pro instalaci všech potřebných závislostí projektu:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3. Nastavení prostředí
@@ -63,26 +64,16 @@ SUPABASE_ANON_KEY=<tvůj_supabase_anon_key>
 Aplikaci spustíte pomocí následujícího příkazu:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Po spuštění bude aplikace dostupná na `http://localhost:3000`.
-
-### 5. Build pro produkci
-
-Pro build aplikace pro produkční prostředí použijte:
-
-```bash
-bpm run build
-```
-
-Tento příkaz vygeneruje optimalizovanou verzi aplikace ve složce `build`, připravenou pro nasazení.
+Po spuštění bude aplikace dostupná na `http://localhost:5173`.
 
 ## Architektura
 
 ### Frontend
 
-Aplikace využívá **React** pro komponentově orientovaný vývoj a **Remix** pro efektivní správu routování a server-side rendering (SSR). Remix umožňuje rychlou a efektivní práci s daty a poskytuje přímočarý způsob načítání dat z API a jejich správu.
+Aplikace využívá **React** pro komponentově orientovaný vývoj.
 
 ### Backend
 
@@ -90,7 +81,7 @@ Aplikace využívá **React** pro komponentově orientovaný vývoj a **Remix** 
 
 ### Styling
 
-Pro rychlou a efektivní tvorbu uživatelského rozhraní aplikace používá **TailwindCSS**, což zjednodušuje správu responzivního designu a umožňuje dynamické přizpůsobení stylů přímo ve vývoji.
+Pro rychlou a efektivní tvorbu uživatelského rozhraní aplikace používá **TailwindCSS**, což zjednodušuje správu responzivního designu a umožňuje dynamické přizpůsobení stylů přímo ve vývoji. Pro komponenty a UI design je využíván **Shadcn UI**.
 
 ### Databáze
 

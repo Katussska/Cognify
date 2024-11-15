@@ -1,19 +1,31 @@
+import { useEffect, useState } from 'react';
+
 import { Auth } from '@/components/auth';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useTranslation } from 'react-i18next';
-import { loginSchema, LoginSchema } from '@/schemas/auth';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { useAuthContext } from '@/lib/authContext';
+import { LoginSchema, loginSchema } from '@/schemas/auth';
 import { supabase } from '@/supabase';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function _authLogin() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { user } = useAuthContext();
   // todo: loading use loading state on button or somethign
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   const form = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema(t)),
@@ -25,23 +37,36 @@ export default function _authLogin() {
 
   const onSubmit = form.handleSubmit(async ({ email, password }) => {
     setLoading(true);
-    const { data, error } = await supabase.auth.signInWithPassword({
+
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
     if (error) {
+      console.error(error);
       form.setError('root', {
         type: 'custom',
         message: error.message,
       });
     }
-  })
+    setLoading(false);
+    navigate('/');
+  });
 
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [navigate, user]);
 
   return (
-    <Auth title={t('auth.login.title')}
-      footer={<p><Link to="resetPassword">{t('auth.login.forgotPassword')}</Link>
-      </p>}>
+    <Auth
+      title={t('auth.login.title')}
+      footer={
+        <p>
+          <Link to="resetPassword">{t('auth.login.forgotPassword')}</Link>
+        </p>
+      }>
       <Form {...form} onSubmit={onSubmit}>
         <FormField
           control={form.control}
