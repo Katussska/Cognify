@@ -1,24 +1,22 @@
 import tailwindAnimate from 'tailwindcss-animate';
 
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
         sans: [
-          '"Inter"',
+          'Inter"',
           'ui-sans-serif',
           'system-ui',
           'sans-serif',
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-          '"Noto Color Emoji"',
+          'Apple Color Emoji"',
+          'Segoe UI Emoji"',
+          'Segoe UI Symbol"',
+          'Noto Color Emoji"',
         ],
       },
       borderRadius: {

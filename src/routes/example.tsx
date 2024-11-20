@@ -5,7 +5,7 @@ export default function ExampleRoute() {
   const { user, session, logOut } = useAuthContext();
 
   // this should not get displayed ever
-  if (!user || !session) return <div>fuck you</div>;
+  if (!user || !session) return <div>MOČKO</div>;
 
   return (
     <div>

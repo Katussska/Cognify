@@ -60,6 +60,8 @@ export default function _authLogin() {
   }, [navigate, user]);
 
   return (
+    <div className='w-screen h-screen flex justify-center items-center'>
+    <div className='w-1/3 h-fit'>
     <Auth
       title={t('auth.login.title')}
       footer={
@@ -94,8 +96,10 @@ export default function _authLogin() {
             </FormItem>
           )}
         />
-        <Button type="submit">{t('auth.login.submit')}</Button>
+        <Button type="submit" className='w-full flex mt-5 mx-auto'>{t('auth.login.submit')}</Button>
       </Form>
     </Auth>
+    </div>
+    </div>
   );
 }

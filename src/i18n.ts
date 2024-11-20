@@ -1,18 +1,7 @@
-// import csTranslation from './locales/cs/common.json';
-// import enTranslation from './locales/en/common.json';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-
-// const resources = {
-//   en: {
-//     common: { ...enTranslation },
-//   },
-//   cs: {
-//     common: { ...csTranslation },
-//   },
-// };
 
 i18n
   .use(Backend)
@@ -24,10 +13,6 @@ i18n
     // resources,
     fallbackLng: 'en',
     debug: import.meta.env.NODE_ENV === 'development',
-
-    interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
-    },
 
     // Backend configuration
     backend: {
