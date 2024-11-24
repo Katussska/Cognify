@@ -24,5 +24,25 @@
     "chats": "Konverzace",
     "groupChats": "Skupinové konverzace",
     "logout": "Odhlásit se"
+  },
+  "chat": {
+    "inputPlaceholder": "Napište zprávu..."
+  },
+  "profile": {
+    "picture": "Profilový obrázek",
+    "name": "Jméno",
+    "email": "Email",
+    "password": "Heslo",
+    "newPassword": "Nové heslo",
+    "repeatPassword": "Zopakujte heslo",
+    "submit": "Upravit",
+    "graph": {
+      "title": "Počet zpráv",
+      "subtitle": "Počet zpráv za posledních 7 dní",
+      "LLM": {
+        "average": "Průměr",
+        "today": "Dnes"
+      }
+    }
   }
 }

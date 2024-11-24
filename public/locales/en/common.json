@@ -24,5 +24,25 @@
     "chats": "Chats",
     "groupChats": "Group chats",
     "logout": "Logout"
+  },
+  "chat": {
+    "inputPlaceholder": "Type a message..."
+  },
+  "profile": {
+    "picture": "Profile",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "newPassword": "New password",
+    "repeatPassword": "Repeat password",
+    "submit": "Submit",
+    "graph": {
+      "title": "Number of messages",
+      "subtitle": "Number of messages in the last 7 days",
+      "LLM": {
+        "average": "Average",
+        "today": "Today"
+      }
+    }
   }
 }
