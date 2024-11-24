@@ -116,5 +116,3 @@ upravovat limity pro každého uživatele.
 
 Tento projekt je licencován pod licencí **MIT**. Jedná se o bakalářskou práci na Fakultě informatiky a elektroniky na
 VŠB - Technické univerzitě Ostrava.
-
-```
