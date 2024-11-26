@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button.tsx';
 import {
   Sidebar,
   SidebarContent,
@@ -9,40 +9,53 @@ import {
   SidebarHeader,
   SidebarMenu,
 } from '@/components/ui/sidebar';
-import { LogOut, Plus } from 'lucide-react';
-import { ModeToggle } from '@/components/mode-toggle';
+import { useAuthContext } from '@/lib/authContext';
 
+import { Bug, LogOut, Plus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function AppSidebar() {
+  const { logOut } = useAuthContext();
   const { t } = useTranslation();
 
   return (
     <Sidebar>
-      <SidebarHeader>
-        <ModeToggle />
-        <Plus />
+      <SidebarHeader className="m-2.5">
+        <Button>
+          <Plus />
+        </Button>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="m-2.5">
         <SidebarGroup>
           <SidebarGroupLabel>{t('sidebar.chats')}</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              // chats
-            </SidebarMenu>
+            <SidebarMenu>// chats</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>{t('sidebar.groupChats')}</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              // group chats
-            </SidebarMenu>
+            <SidebarMenu>// group chats</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <LogOut />
-        {t('sidebar.logout')}
+      <SidebarFooter className="m-2.5">
+        <div
+          className="flex cursor-pointer flex-row items-center"
+          onClick={() =>
+            window.open('https://github.com/Katussska/Cognify/issues', '_blank')
+          }>
+          <Bug className="mr-3" size={20} />
+          {t('sidebar.bugReport')}
+        </div>
+        <div
+          className="mt-2 flex cursor-pointer flex-row items-center"
+          onClick={async () => {
+            await logOut();
+          }}>
+          <LogOut className="mr-3" size={20} />
+          {t('sidebar.logout')}
+        </div>
       </SidebarFooter>
     </Sidebar>
   );

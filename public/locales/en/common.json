@@ -23,6 +23,7 @@
   "sidebar": {
     "chats": "Chats",
     "groupChats": "Group chats",
+    "bugReport": "Bug report",
     "logout": "Logout"
   },
   "chat": {

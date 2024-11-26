@@ -23,6 +23,7 @@
   "sidebar": {
     "chats": "Konverzace",
     "groupChats": "Skupinové konverzace",
+    "bugReport": "Nahlásit chybu",
     "logout": "Odhlásit se"
   },
   "chat": {
