@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
 
-import { supabase } from '@/supabase';
+import { supabase } from '@/supabase.ts';
 
 import { useNavigate } from 'react-router-dom';
 

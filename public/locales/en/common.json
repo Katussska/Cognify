@@ -42,7 +42,7 @@
       "subtitle": "Number of messages in the last 7 days",
       "LLM": {
         "average": "Average",
-        "today": "Today"
+        "current": "Current"
       }
     }
   }

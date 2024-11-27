@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-import ChatSection from '@/components/ChatSection.tsx';
-import { AppSidebar } from '@/components/app-sidebar';
+import { AppSidebar } from '@/components/sidebar/app-sidebar.tsx';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -11,8 +10,6 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="w-full">
         <SidebarTrigger className="absolute" />
         {children}
-        {/*<UserCorner />*/}
-        <ChatSection />
       </main>
     </SidebarProvider>
   );

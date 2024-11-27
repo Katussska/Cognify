@@ -8,8 +8,8 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-} from '@/components/ui/sidebar';
-import { useAuthContext } from '@/lib/authContext';
+} from '@/components/ui/sidebar.tsx';
+import { useAuthContext } from '@/lib/authContext.tsx';
 
 import { Bug, LogOut, Plus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';

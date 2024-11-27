@@ -42,7 +42,7 @@
       "subtitle": "Počet zpráv za posledních 7 dní",
       "LLM": {
         "average": "Průměr",
-        "today": "Dnes"
+        "current": "Aktuálně"
       }
     }
   }
