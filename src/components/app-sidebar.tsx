@@ -45,15 +45,15 @@ export function AppSidebar() {
           onClick={() =>
             window.open('https://github.com/Katussska/Cognify/issues', '_blank')
           }>
-          <Bug className="mr-3" size={20} />
+          <Bug className="mr-3" size={16} />
           {t('sidebar.bugReport')}
         </div>
         <div
-          className="mt-2 flex cursor-pointer flex-row items-center"
+          className="my-2 flex cursor-pointer flex-row items-center"
           onClick={async () => {
             await logOut();
           }}>
-          <LogOut className="mr-3" size={20} />
+          <LogOut className="mr-3" size={16} />
           {t('sidebar.logout')}
         </div>
       </SidebarFooter>
