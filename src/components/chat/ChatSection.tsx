@@ -6,7 +6,7 @@ export default function ChatSection() {
   return (
     <div className="flex w-full flex-1 flex-grow flex-col">
       <ModelSelector />
-      <div className="flex w-full flex-grow flex-col items-center px-20">
+      <div className="flex w-full flex-grow flex-col items-center px-10">
         <ChatContent />
         <ChatInput />
       </div>

@@ -8,7 +8,7 @@ export default function ChatInput() {
   return (
     <div className="mb-7 flex w-full flex-row items-center justify-center">
       <Paperclip className="" />
-      <Input className="mx-5 max-w-3xl" placeholder={t('chat.inputPlaceholder')} />
+      <Input className="mx-8 max-w-3xl" placeholder={t('chat.inputPlaceholder')} />
       <SendHorizontal />
     </div>
   );
