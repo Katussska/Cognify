@@ -1,5 +1,7 @@
+import TreeProvider from '@/components/TreeProvider.tsx';
 import ChatSection from '@/components/chat/ChatSection.tsx';
 import { Layout } from '@/components/layout.tsx';
+import TreeSection from '@/components/tree/TreeSection.tsx';
 import UserBadge from '@/components/userBadge/UserBadge.tsx';
 import Profile from '@/routes/profile.tsx';
 
@@ -14,9 +16,12 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <ProtectedRoute>
-        <Layout>
-          <UserBadge />
-          <ChatSection />
+        <Layout className="flex flex-row">
+          <TreeProvider>
+            <UserBadge />
+            <ChatSection />
+            <TreeSection />
+          </TreeProvider>
         </Layout>
       </ProtectedRoute>
     ),
