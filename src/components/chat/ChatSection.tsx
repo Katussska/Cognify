@@ -4,12 +4,12 @@ import ModelSelector from '@/components/chat/ModelSelector.tsx';
 
 export default function ChatSection() {
   return (
-    <div className="flex w-full flex-1 flex-grow flex-col">
+    <div className="flex h-screen w-full flex-col">
       <ModelSelector />
-      <div className="flex w-full flex-grow flex-col items-center px-10">
+      <div className="flex-grow overflow-y-auto p-4">
         <ChatContent />
-        <ChatInput />
       </div>
+      <ChatInput />
     </div>
   );
 }
